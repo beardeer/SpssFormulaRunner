@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """
 This function runs SPSS logistic regression formula with a test data file.
 The formula must be contained in a CSV file and only have features and the associated beta values.
