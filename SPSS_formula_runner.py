@@ -20,6 +20,9 @@ def SPSS_formula_runner (target_col_num,
                          testing_data_file_name,
                          output_file_name=None):
 
+    zeop_value_tags = ["0c", "0b"]
+    intercept_tag = "Intercept"
+
     target_col_num = int(target_col_num)
 
     # Open formula and testing data file
@@ -45,10 +48,10 @@ def SPSS_formula_runner (target_col_num,
         item = row[0]
         beta = row[1]
         
-        if (beta == "0c") or (beta == "0b"):
+        if (beta in zeop_value_tags):
             beta = 0
             
-        if item == "Intercept":
+        if item == intercept_tag:
             intercept = -1*float(beta)
         elif ('[' in item) and ("]" in item):
             item = item[1:-1]
