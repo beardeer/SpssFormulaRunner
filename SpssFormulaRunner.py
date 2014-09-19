@@ -15,7 +15,7 @@ from csv import reader, writer
 
 E = 2.718281828
 
-def SPSS_formula_runner (target_col_num,
+def SpssFormulaRunner (target_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None):
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     formula_file_name = "pfa_formula.csv"
     testing_data_file_name = "pfa_test_data.csv"
     
-    SPSS_formula_runner(target_col_num,
+    SpssFormulaRunner(target_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None)
