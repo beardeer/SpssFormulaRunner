@@ -16,7 +16,7 @@ import sys
 
 E = 2.718281828
 
-def SpssFormulaRunner (label_col_num,
+def SPSS_formula_runner (label_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None):
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     print "The testing data file name is %s" % testing_data_file_name
 
     
-    SpssFormulaRunner(label_col_num,
+    SPSS_formula_runner(label_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None)
