@@ -11,19 +11,20 @@ xxiong@wpi.edu
 """
 
 from csv import reader, writer
+import sys
 
 
 E = 2.718281828
 
-def SpssFormulaRunner (target_col_num,
+def SpssFormulaRunner (label_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None):
 
-    zeop_value_tags = ["0c", "0b"]
+    zero_value_tags = ["0c", "0b"]
     intercept_tag = "Intercept"
 
-    target_col_num = int(target_col_num)
+    label_col_num = int(label_col_num)
 
     # Open formula and testing data file
     formula_file = open(formula_file_name, 'rU')
@@ -48,7 +49,7 @@ def SpssFormulaRunner (target_col_num,
         item = row[0]
         beta = row[1]
         
-        if (beta in zeop_value_tags):
+        if (beta in zero_value_tags):
             beta = 0
             
         if item == intercept_tag:
@@ -84,7 +85,7 @@ def SpssFormulaRunner (target_col_num,
     for row in test_data_csv_reader:
         result = 0
         result += intercept
-        target = row[target_col_num]
+        target = row[label_col_num]
         
         for parameter_name in parameter_dict.keys():
             parameter_pos = parameter_dict[parameter_name]
@@ -110,11 +111,18 @@ def SpssFormulaRunner (target_col_num,
 
 if __name__ == '__main__':
 
-    target_col_num = 3
-    formula_file_name = "pfa_formula.csv"
-    testing_data_file_name = "pfa_test_data.csv"
+
+
+    label_col_num = sys.argv[1]
+    formula_file_name = sys.argv[2]
+    testing_data_file_name = sys.argv[3]
+
+    print "The label col num is %s" % label_col_num
+    print "The formula file name is %s" % formula_file_name
+    print "The testing data file name is %s" % testing_data_file_name
+
     
-    SpssFormulaRunner(target_col_num,
+    SpssFormulaRunner(label_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None)
