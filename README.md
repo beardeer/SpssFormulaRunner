@@ -1,7 +1,7 @@
-SPSS_formula_runner
+SpssFormulaRunner
 ===================
 
-SPSS formula runner:  generates regression results by fitting test data with the SPSS training model (the formula)
+SpssFormulaRunner:  generates regression results by fitting test data with the SPSS training model (the formula)
 
 
 SPSS regression doesn't support cross validation or running against with testing data (at least for version 17.0), in other words, it can only train models, but no way to test them. 
