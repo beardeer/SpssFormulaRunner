@@ -16,7 +16,7 @@ import sys
 
 E = 2.718281828
 
-def SPSS_formula_runner (label_col_num,
+def SpssFormulaRunner (label_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None):
@@ -46,15 +46,14 @@ def SPSS_formula_runner (label_col_num,
     output_cst_writer = writer(output_file)
 
     for row in formula_csv_reader:
-        item = row[0]
-        beta = row[1]
+        item = row[0].strip()
+        beta = row[1].strip()
         
         if (beta in zero_value_tags):
             beta = 0
-            
-        if item == intercept_tag:
+        elif item == intercept_tag:
             intercept = -1*float(beta)
-        elif ('[' in item) and ("]" in item):
+        elif (('[' in item) and ("]" in item)):
             item = item[1:-1]
             key = item.split('=')[0]
             value = item.split('=')[1]
@@ -122,7 +121,7 @@ if __name__ == '__main__':
     print "The testing data file name is %s" % testing_data_file_name
 
     
-    SPSS_formula_runner(label_col_num,
+    SpssFormulaRunner(label_col_num,
                          formula_file_name,
                          testing_data_file_name,
                          output_file_name=None)
