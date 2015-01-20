@@ -1,7 +1,7 @@
 Spss Formula Runner
 ===================
 
-Spss Formula Runner:  generates regression results by fitting test data with the SPSS training model (the formula)
+Spss Formula Runner:  generates regression results by fitting test data with the SPSS training model. 
 
 
 SPSS regression doesn't support cross validation or running against with testing data (at least for version 17.0), in other words, it can only train models, but no way to test them. 
